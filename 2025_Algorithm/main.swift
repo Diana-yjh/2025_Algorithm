@@ -5,6 +5,4 @@
 //  Created by Yejin Hong on 11/9/25.
 //
 
-import Foundation
-
-B_2512_예산().solution()
+B_2607_비슷한단어().solution()
