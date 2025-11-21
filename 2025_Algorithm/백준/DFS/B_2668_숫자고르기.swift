@@ -9,16 +9,37 @@ import Foundation
 
 struct B_2668_숫자고르기 {
     func solution() {
-        let N: Int = Int(readLine()!)!
-        let values: [Int] = (0..<N).map { _ in Int(readLine()!)!}
+        let N = Int(readLine()!)!
+        let numbers: [Int] = (1...N).map { _ in readLine()! }.map{ Int($0)! }
         
-        dfs(indexs: [Int](1...N), values: values)
-    }
-    
-    func dfs(indexs: [Int], values: [Int]) {
-        var result: [Int] = []
+        var starts: [Int] = []
+        var ends: [Int] = []
+        var visited: [Int] = []
         
-        print(result.count)
-        result.forEach { print($0) }
+        (1...N).forEach { index in
+            starts.append(index)
+            ends.append(numbers[index - 1])
+            
+            while true {
+                if starts.sorted() == ends.sorted() {
+                    visited.append(contentsOf: starts)
+                    starts = []
+                    ends = []
+                    break
+                }
+                
+                if ends.count != Set(ends).count {
+                    starts = []
+                    ends = []
+                    break
+                }
+                
+                starts.append(ends.last!)
+                ends.append(numbers[starts.last! - 1])
+            }
+        }
+        
+        print(Set(visited).count)
+        Array(Set(visited)).sorted().forEach { print($0) }
     }
 }
