@@ -5,31 +5,6 @@
 //  Created by Yejin Hong on 11/28/25.
 //
 
-struct Queue<T> {
-    private var inbound = [T]()
-    private var outbound = [T]()
-    
-    var isEmpty: Bool {
-        return inbound.isEmpty && outbound.isEmpty
-    }
-    
-    var count: Int {
-        return inbound.count + outbound.count
-    }
-    
-    mutating func enqueue(_ element: T) {
-        inbound.append(element)
-    }
-    
-    mutating func dequeue() -> T? {
-        if outbound.isEmpty {
-            outbound = inbound.reversed()
-            inbound.removeAll()
-        }
-        return outbound.popLast()
-    }
-}
-
 struct B_2573_빙산 {
     let directionX = [1, 0, -1, 0]
     let directionY = [0, -1, 0, 1]
