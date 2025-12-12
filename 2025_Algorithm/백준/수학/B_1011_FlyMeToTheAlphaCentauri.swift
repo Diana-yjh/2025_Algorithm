@@ -5,6 +5,8 @@
 //  Created by Yejin Hong on 12/12/25.
 //
 
+import Foundation
+
 struct B_1011_FlyMeToTheAlphaCentauri {
     func solution() {
         let testcase = Int(readLine()!)!
@@ -12,37 +14,16 @@ struct B_1011_FlyMeToTheAlphaCentauri {
         for _ in 0 ..< testcase {
             let input = readLine()!.split(separator: " ").map{ Int($0)! }
             let start = input[0], end = input[1]
-            let distance = end - start
+            let distance: Double = Double(end - start)
             
-            var number = 1
-            var result = 2
+            let n = sqrt(distance)
             
-            if distance == 1 {
-                print(1)
-                continue
-            } else if distance == 2 {
-                print(2)
-                continue
+            if distance == n * n {
+                print(2 * n - 1)
+            } else if distance <= n * (n + 1) {
+                print(2 * n)
             } else {
-                for i in 2... {
-                    var breakPoint: Bool = false
-                    
-                    for _ in 0..<2 {
-                        number += i
-                        
-                        result += 1
-                        
-                        if number >= distance - 1 {
-                            breakPoint = true
-                            break
-                        }
-                    }
-                    
-                    if breakPoint {
-                        print(result)
-                        break
-                    }
-                }
+                print(2 * n + 1)
             }
         }
     }
