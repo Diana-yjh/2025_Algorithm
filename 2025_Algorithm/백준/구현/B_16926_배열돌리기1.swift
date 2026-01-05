@@ -8,7 +8,8 @@
 struct B_16926_배열돌리기1 {
     func solution() {
         let input = readLine()!.split(separator: " ").map{ Int($0)! }
-        let column = input[0], row = input[1], rotation = input[2]
+        let column = input[0], row = input[1]
+        var rotation = input[2]
         var array = [[Int]](repeating: [], count: column)
         var rotateArray = [[Int]](repeating: [Int](repeating: 0, count: row), count: column)
         var copyArray = [[Int]]()
@@ -27,6 +28,8 @@ struct B_16926_배열돌리기1 {
             
             var next = (0, 0)
             var count = 1
+            
+            rotation = rotation % (2 * (column + row) - 4)
             
             while true {
                 if start.0 == i && (i..<column-1-i) ~= start.1 {
