@@ -52,4 +52,33 @@ struct B_1759_암호만들기 {
             print(passwordList[i])
         }
     }
+    
+    func solution2() {
+        let input = readLine()!.split(separator: " ").map{ Int($0)! }
+        let L = input[0]
+        let C = input[1]
+        var wordList = readLine()!.split(separator: " ").map{ String($0) }
+        wordList.sort()
+        
+        let vowel = ["a", "e", "i", "o", "u"]
+        
+        func backTrack(_ index: Int, password: [String]){
+            if password.count == L {
+                let vowelCount = password.filter { vowel.contains($0) }.count
+                let consonantCount = L - vowelCount
+                
+                if vowelCount >= 1 && consonantCount >= 2 {
+                    print(password.joined())
+                }
+                return
+            }
+            
+            if index >= C { return }
+            
+            backTrack(index + 1, password: password + [wordList[index]])
+            backTrack(index + 1, password: password)
+        }
+        
+        backTrack(0, password: [])
+    }
 }
