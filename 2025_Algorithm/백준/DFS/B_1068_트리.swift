@@ -46,4 +46,40 @@ struct B_1068_트리 {
         
         print(count)
     }
+    
+    func solution2() {
+        let nodeNumber = Int(readLine()!)!
+        var input = readLine()!.split(separator: " ").map{ Int($0)! }
+        let erase = Int(readLine()!)!
+        let start = input.firstIndex(of: -1) ?? 0
+        
+        var needToVisit: [Int] = [start]
+        var leaves: Int = 0
+        
+        input[erase] = -2
+        
+        if erase == start {
+            print(0)
+            return
+        }
+        
+        while !(needToVisit.isEmpty) {
+            let now = needToVisit.removeFirst()
+            var nodes: [Int] = []
+            
+            for i in 0..<nodeNumber {
+                if now == input[i] {
+                    nodes.append(i)
+                }
+            }
+            
+            if nodes.count == 0 {
+                leaves += 1
+            } else {
+                needToVisit += nodes
+            }
+        }
+        
+        print(leaves)
+    }
 }

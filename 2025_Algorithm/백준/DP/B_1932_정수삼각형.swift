@@ -55,4 +55,34 @@ struct B_1932_정수삼각형 {
         
         print(result.max()!)
     }
+    
+    func solution2() {
+        let height = Int(readLine()!)!
+        var before: [Int] = [Int](repeating: 0, count: height)
+        var copyBefore: [Int] = [Int](repeating: 0, count: height)
+        
+        for _ in 0..<height {
+            let numbers = readLine()!.split(separator: " ").map { Int($0)! }
+            
+            if numbers.count == 1 {
+                before[0] = numbers[0]
+            } else {
+                var maxNum = 0
+                
+                for i in 0..<numbers.count {
+                    if i == 0 {
+                        maxNum = before[i] + numbers[i]
+                    } else if i == numbers.count - 1 {
+                        maxNum = before[i - 1] + numbers[i]
+                    } else {
+                        maxNum = max(before[i - 1] + numbers[i], before[i] + numbers[i])
+                    }
+                    copyBefore[i] = maxNum
+                }
+                before = copyBefore
+            }
+        }
+        
+        print(before.max()!)
+    }
 }
