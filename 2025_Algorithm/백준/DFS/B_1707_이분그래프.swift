@@ -5,3 +5,8 @@
 //  Created by Yejin Hong on 12/11/25.
 //
 
+struct B_1707_이분그래프 {
+    func solution() {
+        
+    }
+}

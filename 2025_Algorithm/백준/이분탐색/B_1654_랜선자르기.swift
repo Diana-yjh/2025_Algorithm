@@ -15,21 +15,23 @@ struct B_1654_랜선자르기 {
         
         let start = cables.max()!
         
-        binarySearch(mid: start + 1 / 2, left: 0, right: start)
+        binarySearch(left: 0, right: start)
         
-        func binarySearch(mid: Int, left: Int, right: Int) {
+        func binarySearch(left: Int, right: Int) {
+            let mid = (left + right) / 2
             var number = 0
+            
+            if left > right {
+                print(mid)
+                return
+            }
             
             cables.forEach{ item in number += (item / mid) }
             
             if number < N {
-                binarySearch(mid: (left + mid) / 2, left: left, right: mid)
+                binarySearch(left: left, right: mid - 1)
             } else {
-                if mid == left || mid == right {
-                    print(mid)
-                    return
-                }
-                binarySearch(mid: (right + mid) / 2, left: mid, right: right)
+                binarySearch(left: mid + 1, right: right)
             }
         }
     }

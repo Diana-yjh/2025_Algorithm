@@ -45,4 +45,37 @@ struct B_2512_예산 {
         
         print(mid)
     }
+    
+    func solution2() {
+        let n = Int(readLine()!)!
+        let budgets = readLine()!.split(separator: " ").map { Int($0)! }
+        let totalLimit = Int(readLine()!)!
+        
+        binary(left: 0, right: budgets.max()!)
+        
+        func binary(left: Int, right: Int) {
+            let mid = (left + right) / 2
+            
+            if left > right {
+                print(mid)
+                return
+            }
+            
+            var total = 0
+            
+            budgets.forEach { item in
+                if item < mid {
+                    total += item
+                } else {
+                    total += mid
+                }
+            }
+            
+            if total > totalLimit {
+                binary(left: left, right: mid - 1)
+            } else {
+                binary(left: mid + 1, right: right)
+            }
+        }
+    }
 }
