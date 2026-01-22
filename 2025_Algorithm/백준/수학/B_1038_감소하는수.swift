@@ -9,29 +9,26 @@ struct B_1038_감소하는수 {
     func solution() {
         let N = Int(readLine()!)!
         var count = 0
+        var arr: [Int] = []
         
-        for i in 0...10 {
-            let start: [Int] = Array(i...9)
+        while count <= N {
+            if N == 0 { return }
             
-            x(array: start, length: i)
-        }
-    }
-    
-    func x(array: [Int], length: Int) {
-        var length = length
-        
-        for i in array {
-            let next = Array(0...i)
+            count += 1
             
-            if next.count < length {
+            guard let first = arr.first, first / 10 < 1 else {
+                arr.append(count)
                 continue
             }
             
-            if length == 0 {
-                
-            }
             
-            length += 1
         }
     }
 }
+
+/*
+ 0 1 2 3 4 5 6 7 8 9
+ 10 20 21 30 31 32 40 41 42 43 ...
+ 210 310 320 321 410 420 421 430 431 432 ...
+ 
+ */
