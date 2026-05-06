@@ -35,4 +35,8 @@ struct B_1654_랜선자르기 {
             }
         }
     }
+    
+    func solution2() {
+        
+    }
 }

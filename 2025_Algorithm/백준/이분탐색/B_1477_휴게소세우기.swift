@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct B_1477_휴게소세우기 {
+    func solution() {
+       
+    }
+}

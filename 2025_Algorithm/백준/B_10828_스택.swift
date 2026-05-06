@@ -9,7 +9,7 @@ import Foundation
 
 struct B_10828_스택 {
     var stack: [Int] = []
-    var result: Int = 0
+    var result: String = ""
     
     mutating func solution() {
         let input = Int(readLine()!)!
@@ -19,19 +19,19 @@ struct B_10828_스택 {
             
             switch command.first {
             case "pop":
-                result = stack.popLast() ?? -1
+                result = "\(stack.popLast() ?? -1)\n"
             case "top":
-                result = stack.last ?? -1
+                result = "\(stack.last ?? -1)\n"
             case "push":
                 stack.append(Int(command[1])!)
             case "size":
-                result = stack.count
+                result = "\(stack.count)\n"
             case "empty":
-                result = stack.isEmpty ? 1 : 0
-            default:
-                print("default")
+                result = "\(stack.isEmpty ? 1 : 0)\n"
+            default: break
             }
-            print(result)
         }
+        
+        print(result)
     }
 }
