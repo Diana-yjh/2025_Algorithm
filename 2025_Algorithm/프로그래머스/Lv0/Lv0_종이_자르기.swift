@@ -7,6 +7,6 @@
 
 import Foundation
 
-func solution(_ M:Int, _ N:Int) -> Int {
-    M * N - 1
-}
+//func solution(_ M:Int, _ N:Int) -> Int {
+//    M * N - 1
+//}

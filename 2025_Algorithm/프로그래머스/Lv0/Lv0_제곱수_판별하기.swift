@@ -7,8 +7,8 @@
 
 import Foundation
 
-func solution(_ n:Int) -> Int {
-    guard sqrt(Double(n)) - Double(Int(sqrt(Double(n)))) == 0 else { return 2 }
-    
-    return 1
-}
+//func solution(_ n:Int) -> Int {
+//    guard sqrt(Double(n)) - Double(Int(sqrt(Double(n)))) == 0 else { return 2 }
+//    
+//    return 1
+//}
